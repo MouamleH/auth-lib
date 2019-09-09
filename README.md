@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/61d02e4a900f444f9cbf3731a022a927)](https://www.codacy.com/manual/MouamleH/security-login?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MouamleH/security-login&amp;utm_campaign=Badge_Grade)
 # Security Login
 A library to handle user authentication (login, login checking)
 
