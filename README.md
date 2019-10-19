@@ -2,6 +2,9 @@
 # Security Login
 A library to handle user authentication (login, login checking)
 
+# Installation
+[Jitpack](https://jitpack.io/#MouamleH/security-login/0.0.1-beta)
+
 # Usage
 Basic usage details
 
