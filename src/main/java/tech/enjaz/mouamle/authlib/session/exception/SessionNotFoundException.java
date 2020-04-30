@@ -1,4 +1,4 @@
-package tech.enjaz.mouamle.securitylogin.login.session.exception;
+package tech.enjaz.mouamle.authlib.session.exception;
 
 public class SessionNotFoundException extends RuntimeException {
 

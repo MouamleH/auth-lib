@@ -1,5 +1,6 @@
-package tech.enjaz.mouamle.securitylogin.login.session;
+package tech.enjaz.mouamle.authlib.session;
 
+@SuppressWarnings("rawtypes")
 public class Session {
 
     private final String id;

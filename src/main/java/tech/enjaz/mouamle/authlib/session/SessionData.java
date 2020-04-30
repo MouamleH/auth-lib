@@ -1,4 +1,4 @@
-package tech.enjaz.mouamle.securitylogin.login.session;
+package tech.enjaz.mouamle.authlib.session;
 
 import java.util.Objects;
 

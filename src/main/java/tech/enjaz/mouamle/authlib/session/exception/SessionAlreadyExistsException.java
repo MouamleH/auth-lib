@@ -1,6 +1,6 @@
-package tech.enjaz.mouamle.securitylogin.login.session.exception;
+package tech.enjaz.mouamle.authlib.session.exception;
 
-import tech.enjaz.mouamle.securitylogin.login.session.Session;
+import tech.enjaz.mouamle.authlib.session.Session;
 
 public class SessionAlreadyExistsException extends RuntimeException {
 

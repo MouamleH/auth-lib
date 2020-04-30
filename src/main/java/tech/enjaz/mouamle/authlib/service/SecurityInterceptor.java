@@ -1,4 +1,4 @@
-package tech.enjaz.mouamle.securitylogin.login.security;
+package tech.enjaz.mouamle.authlib.service;
 
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.HandlerInterceptor;
