@@ -8,6 +8,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 import tech.enjaz.mouamle.authlib.annotation.SecuredCall;
 import tech.enjaz.mouamle.authlib.annotation.SessionContext;
 import tech.enjaz.mouamle.authlib.session.Session;
+import tech.enjaz.mouamle.authlib.session.exception.InvalidRoleException;
 import tech.enjaz.mouamle.authlib.session.exception.SessionNotFoundException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +44,13 @@ public class DefaultSecurityInterceptor implements SecurityInterceptor {
                 } else {
                     if (!annotation.token().equals(sessionId)) {
                         throw new SessionNotFoundException(String.format("Couldn't find session with id %s", sessionId), sessionId);
+                    }
+                }
+
+                String role = annotation.role();
+                if (!role.equals(SecuredCall.DEFAULT_ROLE)) {
+                    if (!sessionManager.checkRole(sessionId, role)) {
+                        throw new InvalidRoleException("Invalid role");
                     }
                 }
 

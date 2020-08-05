@@ -116,6 +116,7 @@ fabric.properties
 hs_err_pid*
 
 ### Maven ###
+.idea/**
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -127,5 +128,6 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 .flattened-pom.xml
+*.iml
 
 # End of https://www.gitignore.io/api/java,maven,intellij

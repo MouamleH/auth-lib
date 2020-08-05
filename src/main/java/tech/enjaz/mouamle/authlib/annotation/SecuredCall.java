@@ -12,6 +12,7 @@ import java.lang.annotation.Target;
 public @interface SecuredCall {
 
     String DEFAULT_STATIC = "DEFAULT_STATIC";
+    String DEFAULT_ROLE = "NO_ROLE";
 
     /**
      * Used to declare a static token that will be used instead of going to the {@link SessionProvider}. <br/>
@@ -20,5 +21,11 @@ public @interface SecuredCall {
      * @return the static token
      */
     String token() default DEFAULT_STATIC;
+
+    /**
+     * Used for checking the token role.
+     * @return the token role
+     */
+    String role() default DEFAULT_ROLE;
 
 }
