@@ -35,6 +35,10 @@ public class DefaultSecurityInterceptor implements SecurityInterceptor {
             if (method.isAnnotationPresent(SecuredCall.class)) {
                 String sessionId = request.getHeader(headerName);
 
+                if (sessionId == null) {
+                    throw new SessionNotFoundException("Invalid session id", null);
+                }
+
                 SecuredCall annotation = method.getAnnotation(SecuredCall.class);
 
                 if (annotation.token().equals(SecuredCall.DEFAULT_STATIC)) {
@@ -48,10 +52,8 @@ public class DefaultSecurityInterceptor implements SecurityInterceptor {
                 }
 
                 String role = annotation.role();
-                if (!role.equals(SecuredCall.DEFAULT_ROLE)) {
-                    if (!sessionManager.checkRole(sessionId, role)) {
-                        throw new InvalidRoleException("Invalid role");
-                    }
+                if (!role.equals(SecuredCall.DEFAULT_ROLE) && !sessionManager.checkRole(sessionId, role)) {
+                    throw new InvalidRoleException("Invalid role");
                 }
 
                 return true;
