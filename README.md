@@ -1,10 +1,12 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/61d02e4a900f444f9cbf3731a022a927)](https://www.codacy.com/manual/MouamleH/security-login?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MouamleH/auth-lib&amp;utm_campaign=Badge_Grade)
+[![](https://jitpack.io/v/MouamleH/auth-lib.svg)](https://jitpack.io/#MouamleH/auth-lib)
+
 
 # Auth Lib
 A library to handle user authentication in spring-boot projects.
 
 ## Installation
-[Jitpack](https://jitpack.io/#MouamleH/auth-lib/1.0.0)
+[Jitpack](https://jitpack.io/#MouamleH/auth-lib/2.0.0)
 
 ## Usage
 Basic usage details
