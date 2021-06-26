@@ -1,7 +1,5 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/61d02e4a900f444f9cbf3731a022a927)](https://www.codacy.com/manual/MouamleH/security-login?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MouamleH/auth-lib&amp;utm_campaign=Badge_Grade)
 [![](https://jitpack.io/v/MouamleH/auth-lib.svg)](https://jitpack.io/#MouamleH/auth-lib)
-
-
 # Auth Lib
 A library to handle user authentication in spring-boot projects.
 
@@ -116,9 +114,7 @@ public class UserEndpoint {
 
 Then all you need in your request is the header name you passed to `DefaultSecurityInterceptor` with the session id as the value, and you're good to go.
 
-
 ### Session creation
-
 In your login method you call your `SessionProvider.newSession()` implementation.
 passing an instance of `SessionData` to get a session Object that you can get the id of and return to the user.
 
@@ -146,5 +142,4 @@ public class AuthEndpoint {
 ```
 
 ### Static token
-
 You can annotate any `Rest Contrller` method with `@SecuredCall(token = "")`  where `token` is your static token for the `DefaultSecurityInterceptor`  to check the header against. 

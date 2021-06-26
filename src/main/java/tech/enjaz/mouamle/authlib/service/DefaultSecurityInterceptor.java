@@ -53,6 +53,7 @@ public class DefaultSecurityInterceptor implements SecurityInterceptor {
                     }
                 }
 
+                @SuppressWarnings("deprecation")
                 String role = annotation.role();
                 List<String> roles = Arrays.asList(annotation.roles());
                 if (!role.equals(SecuredCall.DEFAULT_ROLE) && !roles.contains(role)) {
@@ -80,17 +81,15 @@ public class DefaultSecurityInterceptor implements SecurityInterceptor {
                                   NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
 
         Method method = parameter.getMethod();
-        if (method != null) {
-            if (method.isAnnotationPresent(SecuredCall.class)) {
-                String sessionId = webRequest.getHeader(headerName);
+        if (method != null && method.isAnnotationPresent(SecuredCall.class)) {
+            String sessionId = webRequest.getHeader(headerName);
 
-                Optional<Session> oSession = sessionManager.getSession(sessionId);
-                if (!oSession.isPresent()) {
-                    throw new SessionNotFoundException(String.format("Couldn't find session with id %s", sessionId), sessionId);
-                }
-
-                return oSession.get();
+            Optional<Session> oSession = sessionManager.getSession(sessionId);
+            if (!oSession.isPresent()) {
+                throw new SessionNotFoundException(String.format("Couldn't find session with id %s", sessionId), sessionId);
             }
+
+            return oSession.get();
         }
 
         return null;
