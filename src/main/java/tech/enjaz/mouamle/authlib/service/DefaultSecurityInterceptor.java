@@ -14,6 +14,8 @@ import tech.enjaz.mouamle.authlib.session.exception.SessionNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 public class DefaultSecurityInterceptor implements SecurityInterceptor {
@@ -52,7 +54,12 @@ public class DefaultSecurityInterceptor implements SecurityInterceptor {
                 }
 
                 String role = annotation.role();
-                if (!role.equals(SecuredCall.DEFAULT_ROLE) && !sessionManager.checkRole(sessionId, role)) {
+                List<String> roles = Arrays.asList(annotation.roles());
+                if (!role.equals(SecuredCall.DEFAULT_ROLE) && !roles.contains(role)) {
+                    roles.add(role);
+                }
+
+                if (!roles.isEmpty() && !sessionManager.checkRoles(sessionId, roles)) {
                     throw new InvalidRoleException("Invalid role");
                 }
 

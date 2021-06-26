@@ -3,6 +3,7 @@ package tech.enjaz.mouamle.authlib.service;
 import tech.enjaz.mouamle.authlib.session.Session;
 import tech.enjaz.mouamle.authlib.session.SessionData;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface SessionProvider<T> {
@@ -55,6 +56,15 @@ public interface SessionProvider<T> {
      * @param role the role to check against
      * @return true if the role matches, false otherwise
      */
+    @Deprecated
     boolean checkRole(String sessionId, String role);
+
+    /**
+     * Checks the given session if it contains any of the roles in the list
+     * @param sessionId the id of the session
+     * @param roles the list of roles to check against
+     * @return true if the session role is in the list, false otherwise
+     */
+    boolean checkRoles(String sessionId, List<String> roles);
 
 }

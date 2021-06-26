@@ -26,6 +26,9 @@ public @interface SecuredCall {
      * Used for checking the token role.
      * @return the token role
      */
+    @Deprecated
     String role() default DEFAULT_ROLE;
+
+    String[] roles() default {};
 
 }

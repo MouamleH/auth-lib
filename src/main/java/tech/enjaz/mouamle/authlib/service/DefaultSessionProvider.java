@@ -3,6 +3,7 @@ package tech.enjaz.mouamle.authlib.service;
 import tech.enjaz.mouamle.authlib.session.Session;
 import tech.enjaz.mouamle.authlib.session.SessionData;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -78,14 +79,33 @@ public class DefaultSessionProvider<T> implements SessionProvider<T> {
      * @return true if the role matches, false otherwise
      */
     @Override
+    @Deprecated
     public boolean checkRole(String sessionId, String role) {
         Optional<Session> oSession = getSession(sessionId);
-        if(!oSession.isPresent()){
+        if (!oSession.isPresent()) {
             return false;
         }
 
         Session session = oSession.get();
         return String.valueOf(role).equals(session.getSessionData().getRole());
+    }
+
+    /**
+     * Checks the given session if it contains any of the roles in the list
+     *
+     * @param sessionId the id of the session
+     * @param roles     the list of roles to check against
+     * @return true if the session role is in the list, false otherwise
+     */
+    @Override
+    public boolean checkRoles(String sessionId, List<String> roles) {
+        Optional<Session> oSession = getSession(sessionId);
+        if (!oSession.isPresent()) {
+            return false;
+        }
+
+        Session session = oSession.get();
+        return roles.contains(session.getSessionData().getRole());
     }
 
 }
