@@ -4,7 +4,7 @@
 A library to handle user authentication in spring-boot projects.
 
 ## Installation
-[Jitpack](https://jitpack.io/#MouamleH/auth-lib/2.0.1)
+[Jitpack](https://jitpack.io/#MouamleH/auth-lib/2.1.1)
 
 ## Usage
 Basic usage details
