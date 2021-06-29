@@ -108,4 +108,11 @@ public class DefaultSessionProvider<T> implements SessionProvider<T> {
         return roles.contains(session.getSessionData().getRole());
     }
 
+    /**
+     * @return the sessions list
+     */
+    protected ConcurrentHashMap<String, Session> getSessions() {
+        return sessions;
+    }
+
 }
